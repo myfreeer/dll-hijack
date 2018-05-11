@@ -28,3 +28,8 @@ set (SRC hijack.h)
 
 add_library(winmm SHARED winmm.c winmm.h ${SRC})
 add_library(version SHARED version.c version.h ${SRC})
+add_library(iphlpapi SHARED iphlpapi.c iphlpapi.h ${SRC})
+add_library(winsta SHARED winsta.c winsta.h ${SRC})
+add_library(winhttp SHARED winhttp.c winhttp.h ${SRC})
+add_library(wtsapi32 SHARED wtsapi32.c wtsapi32.h ${SRC})
+add_library(cryptsp SHARED cryptsp.c cryptsp.h ${SRC})
