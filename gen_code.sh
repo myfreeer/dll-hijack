@@ -18,10 +18,17 @@ fi
 
 gen_header() {
     local count=1
+    local dll_exports=( $(gendef - "${dll_path}" | cut -d'=' -f1 | grep -ivP 'LIBRARY|EXPORTS|;') )
     echo "#define DLL_NAME \"${dll_name}\""
+    for i in ${dll_exports[@]}; do
+        echo "#define ${i} _real_${i}"
+    done
     echo "#include \"hijack.h\""
+    for i in ${dll_exports[@]}; do
+        echo "#undef ${i}"
+    done
     echo
-    for i in $(gendef - "${dll_path}" | cut -d'=' -f1 | grep -ivP 'LIBRARY|EXPORTS|;'); do
+    for i in ${dll_exports[@]}; do
         echo "EXPORT ${i}() NOP_FUNC($((count++)));"
     done
 }
