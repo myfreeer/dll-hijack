@@ -106,14 +106,16 @@ bool LoadSysDll(HINSTANCE hModule) {
                     (pImageBase + pimNH->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress);
             DWORD *pName = (DWORD *) (pImageBase + pimExD->AddressOfNames);
             DWORD *pFunction = (DWORD *) (pImageBase + pimExD->AddressOfFunctions);
-
+#ifndef DLL_HIJACK_NON_SYSTEM
             wchar_t szSysDirectory[MAX_PATH + 1];
             GetSystemDirectory(szSysDirectory, MAX_PATH);
 
             wchar_t szDllPath[MAX_PATH + 1];
             lstrcpy(szDllPath, szSysDirectory);
             lstrcat(szDllPath, TEXT("\\" DLL_NAME ".dll"));
-
+#else
+            wchar_t *szDllPath = TEXT(DLL_NAME ".dll");
+#endif
             HINSTANCE hDllModule = LoadLibrary(szDllPath);
             hInstance = hDllModule;
             for (size_t i = 0; i < pimExD->NumberOfNames; i++) {
