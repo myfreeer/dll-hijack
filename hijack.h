@@ -27,6 +27,7 @@ typedef uint32_t MWORD;
 #endif //__cplusplus
 
 #define EXPORT EXTERNC __declspec(dllexport) void __cdecl
+#define PLACEHOLDER EXTERNC void __cdecl
 
 #ifndef __GNUC__
 #define DllMainCRTStartup DllMain

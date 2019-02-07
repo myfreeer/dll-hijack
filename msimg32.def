@@ -1,0 +1,7 @@
+LIBRARY "msimg32"
+EXPORTS
+vSetDdrawflag = __place_holder_1
+AlphaBlend = __place_holder_2
+DllInitialize = __place_holder_3
+GradientFill = __place_holder_4
+TransparentBlt = __place_holder_5
