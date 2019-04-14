@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 if [[ "$1" = "" ]]; then
     echo Fatal: must specify a dll.
     exit
@@ -22,7 +24,7 @@ gen_header() {
         sed -r -e '/^[;]/d' -e 's/^([^;].+)( .+)$/\1/g' -e '/^(LIBRARY|EXPORTS)/d') )
     echo "#define DLL_NAME \"${dll_name}\""
     echo "#include \"hijack.h\""
-    echo "LIBRARY \"${dll_name}\"" >> "${dll_name}.def"
+    echo "LIBRARY \"${dll_name}\"" > "${dll_name}.def"
     echo "EXPORTS" >> "${dll_name}.def"
     for i in ${dll_exports[@]}; do
         local func_name="__place_holder_$((count++))"
@@ -36,17 +38,23 @@ echo "Generated ${dll_name}.h"
 
 cat <<EOF > "./${dll_name}.c"
 #include "${dll_name}.h"
-#include <winuser.h>
 
 void DLLHijackAttach(bool isSucceed) {
-    if (isSucceed)
-        MessageBox(NULL, TEXT("DLL Hijack Attach Succeed!"), TEXT(DLL_NAME " DLL Hijack Attach"), MB_OK);
+  // definition for pointer to MessageBoxW, drop this when unnecessary
+  typedef int (WINAPI *pfMsgBoxW)(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType);
+  // Use of native api is recommended, but not enforced,
+  // you can still use windows api if early load is not required.
+  static pfMsgBoxW pMsgBoxW = NULL;
+  if (pMsgBoxW == NULL) {
+    void *user32 = LdrLoadLibraryW(L"user32.dll");
+    LdrGetProcAddressA(user32, "MessageBoxW");
+  }
+
+  if (isSucceed) {
+    pMsgBoxW(NULL, TEXT("DLL Hijack Attach Succeed!"), TEXT(DLL_NAME " DLL Hijack Attach"), 0);
+  }
 }
 
-void DLLHijackDetach(bool isSucceed) {
-    if (isSucceed)
-        MessageBox(NULL, TEXT("DLL Hijack Detach Succeed!"), TEXT(DLL_NAME " DLL Hijack Detach"), MB_OK);
-}
 EOF
 
 echo "Generated ${dll_name}.c"

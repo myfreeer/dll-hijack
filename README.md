@@ -20,8 +20,10 @@ Requirements: bash (msys2), gendef (mingw)
 
 1. Run `gen_code.sh ${name}.dll`
 2. Modify `${name}.c` with codes you want to execute when dll attached or detached.
-3. Add include proof to `${name}.h` to avoid multiple declaration.
-4. Compile (check previous part)
+3. Compile (check previous part)
 
 ## Credits
-* https://github.com/shuax/GreenChrome
+* <https://github.com/shuax/GreenChrome>
+* <https://github.com/processhacker/phnt>
+* <https://github.com/reactos/reactos>
+* <https://www.winehq.org/>

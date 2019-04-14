@@ -1,21 +1,19 @@
 #define DLL_NAME "version"
-#define VER_H
 #include "hijack.h"
-
-EXPORT GetFileVersionInfoA() NOP_FUNC(1);
-EXPORT GetFileVersionInfoByHandle() NOP_FUNC(2);
-EXPORT GetFileVersionInfoExA() NOP_FUNC(3);
-EXPORT GetFileVersionInfoExW() NOP_FUNC(4);
-EXPORT GetFileVersionInfoSizeA() NOP_FUNC(5);
-EXPORT GetFileVersionInfoSizeExA() NOP_FUNC(6);
-EXPORT GetFileVersionInfoSizeExW() NOP_FUNC(7);
-EXPORT GetFileVersionInfoSizeW() NOP_FUNC(8);
-EXPORT GetFileVersionInfoW() NOP_FUNC(9);
-EXPORT VerFindFileA() NOP_FUNC(10);
-EXPORT VerFindFileW() NOP_FUNC(11);
-EXPORT VerInstallFileA() NOP_FUNC(12);
-EXPORT VerInstallFileW() NOP_FUNC(13);
-EXPORT VerLanguageNameA() NOP_FUNC(14);
-EXPORT VerLanguageNameW() NOP_FUNC(15);
-EXPORT VerQueryValueA() NOP_FUNC(16);
-EXPORT VerQueryValueW() NOP_FUNC(17);
+PLACEHOLDER __place_holder_1() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_2() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_3() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_4() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_5() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_6() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_7() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_8() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_9() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_10() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_11() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_12() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_13() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_14() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_15() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_16() NOP_FUNC(__LINE__);
+PLACEHOLDER __place_holder_17() NOP_FUNC(__LINE__);

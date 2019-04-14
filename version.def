@@ -1,0 +1,19 @@
+LIBRARY "version"
+EXPORTS
+GetFileVersionInfoA = __place_holder_1
+GetFileVersionInfoByHandle = __place_holder_2
+GetFileVersionInfoExA = __place_holder_3
+GetFileVersionInfoExW = __place_holder_4
+GetFileVersionInfoSizeA = __place_holder_5
+GetFileVersionInfoSizeExA = __place_holder_6
+GetFileVersionInfoSizeExW = __place_holder_7
+GetFileVersionInfoSizeW = __place_holder_8
+GetFileVersionInfoW = __place_holder_9
+VerFindFileA = __place_holder_10
+VerFindFileW = __place_holder_11
+VerInstallFileA = __place_holder_12
+VerInstallFileW = __place_holder_13
+VerLanguageNameA = __place_holder_14
+VerLanguageNameW = __place_holder_15
+VerQueryValueA = __place_holder_16
+VerQueryValueW = __place_holder_17
