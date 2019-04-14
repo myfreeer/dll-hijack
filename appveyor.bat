@@ -1,4 +1,6 @@
 echo Syncing msys2 packages...
+C:\msys64\usr\bin\pacman -Syu --noconfirm --needed --noprogressbar
+C:\msys64\usr\bin\pacman -Syu --noconfirm --needed --noprogressbar
 C:\msys64\usr\bin\pacman -Sq --noconfirm --needed --noprogressbar --ask=20 mingw-w64-x86_64-ninja mingw-w64-i686-ninja
 
 echo Building 64-bit version...
