@@ -1,10 +1,10 @@
-// linker flags: -lshell32 -lversion -luuid -lole32
+/* linker flags: -lshell32 -lversion -luuid -lole32 */
 #ifndef UNICODE
 #define UNICODE
-#endif // !UNICODE
+#endif /* !UNICODE */
 #ifndef _UNICODE
 #define _UNICODE
-#endif // !_UNICODE
+#endif /* !_UNICODE */
 
 #include <windows.h>
 #include <stdio.h>

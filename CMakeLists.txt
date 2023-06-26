@@ -40,6 +40,7 @@ set (SRC hijack.h native_api.h)
 
 find_library(sys_version NAMES version)
 add_executable(version_test version_test.c)
+target_compile_options(version_test PRIVATE  -std=c89)
 target_link_libraries(version_test "${sys_version}")
 
 add_library(winmm SHARED winmm.c winmm.h winmm.def ${SRC})
